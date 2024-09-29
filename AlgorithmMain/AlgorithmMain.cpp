@@ -9,16 +9,18 @@ using namespace std;
 
 int main()
 {
-    vector<int> vecData1 = { 23, 45, 6, 28, 99, 54, 56, 66 };
-    vector<int> vecData2 = { 27, 42, 8, 30, 95, 58};
+    vector<int> vecData1 = {  };
+	vector<int> vecData2 = {  };
+	vector<int> vecData3 = {  };
 
-    sort(vecData1.begin(), vecData1.end());
-    sort(vecData2.begin(), vecData2.end());
 
     auto list1 = ListAlgorithm::BuildListInsertTail(vecData1);
-    auto list2 = ListAlgorithm::BuildListInsertTail(vecData2);
+	auto list2 = ListAlgorithm::BuildListInsertTail(vecData2);
+	auto list3 = ListAlgorithm::BuildListInsertTail(vecData3);
 
-    auto ret = ListAlgorithm::ReverseList(list1);
+	vector<ListNode*> vecData{ list1, list2, list3 };
+
+    auto ret = ListAlgorithm::MergeKLists(vecData);
 
     return 0;
 }

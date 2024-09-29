@@ -1,6 +1,7 @@
 #pragma once
 #include "PubStruct.h"
 #include <vector>
+#include <queue>
 
 class ListAlgorithm
 {
@@ -15,5 +16,9 @@ public:
 
     // 反转链表
     static ListNode* ReverseList(ListNode* pList);
+
+    // 合并K个升序链表，leetcode23
+    static ListNode* MergeKLists(std::vector<ListNode*>& lists);
+    bool operator()(ListNode* l1, ListNode* l2) { return l1->nVal > l2->nVal; }
 };
 
