@@ -9,18 +9,14 @@ using namespace std;
 
 int main()
 {
-    vector<int> vecData1 = {  };
+    vector<int> vecData1 = { 1,2,3,4,5 };
 	vector<int> vecData2 = {  };
 	vector<int> vecData3 = {  };
 
 
     auto list1 = ListAlgorithm::BuildListInsertTail(vecData1);
-	auto list2 = ListAlgorithm::BuildListInsertTail(vecData2);
-	auto list3 = ListAlgorithm::BuildListInsertTail(vecData3);
 
-	vector<ListNode*> vecData{ list1, list2, list3 };
-
-    auto ret = ListAlgorithm::MergeKLists(vecData);
+    auto ret = ListAlgorithm::ReverseKGroup(list1, 2);
 
     return 0;
 }

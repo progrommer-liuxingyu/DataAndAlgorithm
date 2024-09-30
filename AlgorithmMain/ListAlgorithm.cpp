@@ -67,12 +67,6 @@ ListNode* ListAlgorithm::ReverseList(ListNode* pList)
     return pRet;
 }
 
-/*
-合并K个升序链表的思路：
-1.可以用优先队列，采用小顶堆，每次取小顶堆的top，进行合并
-2.合并的逻辑跟两个升序两表合并差不多了
-3.在Leetcode中，list有可能是空的，所以在最初插入小顶堆前先做判空处理
-*/
 ListNode* ListAlgorithm::MergeKLists(std::vector<ListNode*>&lists)
 {
     ListNode* pHead = new ListNode, ** pTail = &pHead->pNext;
@@ -84,16 +78,43 @@ ListNode* ListAlgorithm::MergeKLists(std::vector<ListNode*>&lists)
     }
     while (pqTemp.size() > 1)
     {
-        ListNode* pTop = pqTemp.top();
+        (*pTail) = pqTemp.top();
         pqTemp.pop();
-        (*pTail) = pTop;
         pTail = &(*pTail)->pNext;
-		pTop = pTop->pNext;
-        if (pTop)
-            pqTemp.push(pTop);
+        if (*pTail)
+            pqTemp.push(*pTail);
     }
     if (pqTemp.size() == 1)
         *pTail = pqTemp.top();
     return pHead->pNext;
+}
+
+ListNode* ListAlgorithm::ReverseKGroup(ListNode* head, int k)
+{
+    // 先求长度
+    int nLen = 0;
+    ListNode* pHead = head;
+    while (pHead)
+    {
+        ++nLen;
+        pHead = pHead->pNext;
+    }
+    if (nLen < k)
+        return head;
+
+    pHead = nullptr;
+    ListNode* pCur = head, * pNext = nullptr;
+    nLen = 0;
+    while (pCur && nLen++ < k)
+    {
+        pNext = pCur->pNext;
+        pCur->pNext = pHead;
+        pHead = pCur;
+        pCur = pNext;
+    }
+    
+    head->pNext = ReverseKGroup(pCur, k);
+
+    return pHead;
 }
 
