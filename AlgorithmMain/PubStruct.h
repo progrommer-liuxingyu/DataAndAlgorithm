@@ -9,3 +9,11 @@ typedef struct _LIST_NODE_
     _LIST_NODE_() = default;
 }ListNode, *PListNode;
 
+typedef struct _TREE_NODE_
+{
+    int nVal = 0;
+    _TREE_NODE_* pLeft = nullptr, * pRight = nullptr;
+    _TREE_NODE_(int value) :nVal(value) {}
+    _TREE_NODE_() = default;
+}TreeNode, *PTreeNode;
+

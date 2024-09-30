@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClCompile Include="AlgorithmMain.cpp" />
     <ClCompile Include="ListAlgorithm.cpp" />
+    <ClCompile Include="TreeAlgorithm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ListAlgorithm.h" />
     <ClInclude Include="PubStruct.h" />
+    <ClInclude Include="TreeAlgorithm.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
